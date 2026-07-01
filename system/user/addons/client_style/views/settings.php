@@ -120,19 +120,19 @@
     var jsSnippets = [
         {
             label: 'Hide Navigation Item',
-            desc: 'Hide a sidebar nav item by name',
+            desc: 'Hide a sidebar nav item by name (standard + custom)',
             prompt: 'Enter the nav item text to hide (e.g. "Entries", "Files", "Members"):',
             template: function(val) {
-                return "var el = document.querySelector('.ee-sidebar__item[title=\"" + val + "\"]');\nif (el) el.style.display = 'none';";
+                return "document.querySelectorAll('.ee-sidebar__item').forEach(function(el) {\n    var txt = el.querySelector('.ee-sidebar__collapsed-hidden');\n    if (txt && txt.textContent.trim().toLowerCase() === '" + val.toLowerCase() + "') el.style.display = 'none';\n});";
             }
         },
         {
             label: 'Rename Navigation Item',
-            desc: 'Change the text of a sidebar nav item',
+            desc: 'Change the text of a sidebar nav item (standard + custom)',
             prompt: 'Enter the current nav item text:',
             prompt2: 'Enter the new name:',
             template: function(val, val2) {
-                return "var el = document.querySelector('.ee-sidebar__item[title=\"" + val + "\"] .ee-sidebar__collapsed-hidden');\nif (el) el.textContent = '" + val2 + "';";
+                return "document.querySelectorAll('.ee-sidebar__item').forEach(function(el) {\n    var txt = el.querySelector('.ee-sidebar__collapsed-hidden');\n    if (txt && txt.textContent.trim().toLowerCase() === '" + val.toLowerCase() + "') txt.textContent = '" + val2 + "';\n});";
             }
         },
         {
@@ -145,19 +145,19 @@
         },
         {
             label: 'Hide Sidebar Section',
-            desc: 'Hide a whole section (Content, Members, Developer)',
-            prompt: 'Enter the section label (e.g. "Content", "Members", "Developer"):',
+            desc: 'Hide a whole section (Content, Members, Developer, Custom)',
+            prompt: 'Enter the section label (e.g. "Content", "Members", "Custom"):',
             template: function(val) {
-                return "document.querySelectorAll('.ee-sidebar__section-label').forEach(function(el) {\n    if (el.textContent.trim() === '" + val + "') el.closest('.ee-sidebar__items-section').style.display = 'none';\n});";
+                return "document.querySelectorAll('.ee-sidebar__section-label').forEach(function(el) {\n    if (el.textContent.trim().toLowerCase() === '" + val.toLowerCase() + "') el.closest('.ee-sidebar__items-section').style.display = 'none';\n});";
             }
         },
         {
             label: 'Rename Sidebar Section',
-            desc: 'Change a section header (Content, Members, Developer)',
-            prompt: 'Enter the current section name:',
+            desc: 'Change a section header (Content, Members, Developer, Custom)',
+            prompt: 'Enter the current section name (e.g. "Content", "Custom"):',
             prompt2: 'Enter the new name:',
             template: function(val, val2) {
-                return "document.querySelectorAll('.ee-sidebar__section-label').forEach(function(el) {\n    if (el.textContent.trim() === '" + val + "') el.textContent = '" + val2 + "';\n});";
+                return "document.querySelectorAll('.ee-sidebar__section-label').forEach(function(el) {\n    if (el.textContent.trim().toLowerCase() === '" + val.toLowerCase() + "') el.textContent = '" + val2 + "';\n});";
             }
         },
         {
