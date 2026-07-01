@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'author'      => 'Reizoko',
+    'author'      => 'Pontus Madsen',
     'author_url'  => '',
     'name'        => 'Client Style',
     'description' => 'Custom CSS & JavaScript injection for the control panel. Brand the backend for your clients.',

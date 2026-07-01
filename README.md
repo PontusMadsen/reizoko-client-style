@@ -23,4 +23,4 @@ Custom CSS & JavaScript injection for the ExpressionEngine 7 control panel. Bran
 
 ## Author
 
-[Reizoko](https://github.com/PontusMadsen)
+[Pontus Madsen](https://github.com/PontusMadsen)
