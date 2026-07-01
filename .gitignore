@@ -1,0 +1,6 @@
+# OS
+.DS_Store
+
+# EE installation (local dev only)
+ee/
+
