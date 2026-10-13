@@ -21,6 +21,10 @@ Custom CSS & JavaScript injection for the ExpressionEngine 7 control panel. Bran
 
 - ExpressionEngine 7.x
 
+## Documentation
+
+Full documentation, changelog and support: [reizoko.jp/en/addons/client-style.html](https://www.reizoko.jp/en/addons/client-style.html)
+
 ## Security
 
 Anything entered in the Custom JavaScript, Custom CSS and file URL fields is injected into every control panel page for every user. Settings are restricted to Super Admins, and code is stored exactly as entered (it is not XSS-cleaned), so only give Super Admin access to people you trust.
@@ -34,4 +38,4 @@ Released under the [MIT License](LICENSE).
 
 ## Author
 
-[Pontus Madsen](https://github.com/PontusMadsen)
+[Pontus Madsen](https://github.com/PontusMadsen) · more add-ons at [reizoko.jp](https://www.reizoko.jp/en/addons.html)
