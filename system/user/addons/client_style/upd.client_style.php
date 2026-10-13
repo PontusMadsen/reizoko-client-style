@@ -2,7 +2,7 @@
 
 class Client_style_upd
 {
-	public $version = '1.1.0';
+	public $version = '1.2.0';
 
 	public function install()
 	{
@@ -82,6 +82,10 @@ class Client_style_upd
 				'enabled'  => 'y',
 			))->save();
 		}
+
+		ee()->db
+			->where('class', 'Client_style_ext')
+			->update('extensions', array('version' => $this->version));
 
 		return TRUE;
 	}
