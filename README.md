@@ -21,6 +21,17 @@ Custom CSS & JavaScript injection for the ExpressionEngine 7 control panel. Bran
 
 - ExpressionEngine 7.x
 
+## Security
+
+Anything entered in the Custom JavaScript, Custom CSS and file URL fields is injected into every control panel page for every user. Settings are restricted to Super Admins, and code is stored exactly as entered (it is not XSS-cleaned), so only give Super Admin access to people you trust.
+
+- File URLs must be plain `http(s)://` URLs. Anything else is ignored.
+- The JavaScript file URL is fetched server-side (3 second timeout) and inlined into the control panel script, so the server needs `allow_url_fopen` enabled and the URL must be reachable from the server.
+
+## License
+
+Released under the [MIT License](LICENSE).
+
 ## Author
 
 [Pontus Madsen](https://github.com/PontusMadsen)
