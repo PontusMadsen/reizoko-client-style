@@ -2,7 +2,7 @@
 
 class Client_style_ext
 {
-	public $version = '1.1.0';
+	public $version = '1.2.0';
 
 	/**
 	 * Get settings for current site
@@ -39,8 +39,13 @@ class Client_style_ext
 
 		if ( ! empty($settings->css_url))
 		{
-			$url = htmlspecialchars($settings->css_url, ENT_QUOTES, 'UTF-8');
-			$css .= "\n@import url('" . $url . "');\n";
+			$url = trim($settings->css_url);
+
+			// Only allow plain http/https URLs that can't break out of the quotes
+			if (preg_match('#^https?://[^\s"\'()<>\\\\]+$#i', $url))
+			{
+				$css .= "\n@import url('" . $url . "');\n";
+			}
 		}
 
 		if ( ! empty($settings->custom_css))
@@ -76,7 +81,8 @@ class Client_style_ext
 			// Only allow http/https URLs
 			if (preg_match('#^https?://#i', $url))
 			{
-				$contents = @file_get_contents($url);
+				$context = stream_context_create(array('http' => array('timeout' => 3)));
+				$contents = @file_get_contents($url, FALSE, $context);
 
 				if ($contents !== FALSE)
 				{

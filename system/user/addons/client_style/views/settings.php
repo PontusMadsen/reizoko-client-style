@@ -123,7 +123,7 @@
             desc: 'Hide a sidebar nav item by name (standard + custom)',
             prompt: 'Enter the nav item text to hide (e.g. "Entries", "Files", "Members"):',
             template: function(val) {
-                return "document.querySelectorAll('.ee-sidebar__item').forEach(function(el) {\n    var txt = el.querySelector('.ee-sidebar__collapsed-hidden');\n    if (txt && txt.textContent.trim().toLowerCase() === '" + val.toLowerCase() + "') el.style.display = 'none';\n});";
+                return "document.querySelectorAll('.ee-sidebar__item').forEach(function(el) {\n    var txt = el.querySelector('.ee-sidebar__collapsed-hidden');\n    if (txt && txt.textContent.trim().toLowerCase() === " + JSON.stringify(val.toLowerCase()) + ") el.style.display = 'none';\n});";
             }
         },
         {
@@ -132,7 +132,7 @@
             prompt: 'Enter the current nav item text:',
             prompt2: 'Enter the new name:',
             template: function(val, val2) {
-                return "document.querySelectorAll('.ee-sidebar__item').forEach(function(el) {\n    var txt = el.querySelector('.ee-sidebar__collapsed-hidden');\n    if (txt && txt.textContent.trim().toLowerCase() === '" + val.toLowerCase() + "') txt.textContent = '" + val2 + "';\n});";
+                return "document.querySelectorAll('.ee-sidebar__item').forEach(function(el) {\n    var txt = el.querySelector('.ee-sidebar__collapsed-hidden');\n    if (txt && txt.textContent.trim().toLowerCase() === " + JSON.stringify(val.toLowerCase()) + ") txt.textContent = " + JSON.stringify(val2) + ";\n});";
             }
         },
         {
@@ -140,7 +140,7 @@
             desc: 'Replace the site name in sidebar',
             prompt: 'Enter the new sidebar title:',
             template: function(val) {
-                return "var t = document.querySelector('.ee-sidebar__title-name');\nif (t) t.innerHTML = t.querySelector('i').outerHTML + ' ' + '" + val + "';";
+                return "var t = document.querySelector('.ee-sidebar__title-name');\nif (t) t.innerHTML = t.querySelector('i').outerHTML + ' ' + " + JSON.stringify(val) + ";";
             }
         },
         {
@@ -148,7 +148,7 @@
             desc: 'Hide a whole section (Content, Members, Developer, Custom)',
             prompt: 'Enter the section label (e.g. "Content", "Members", "Custom"):',
             template: function(val) {
-                return "document.querySelectorAll('.ee-sidebar__section-label').forEach(function(el) {\n    if (el.textContent.trim().toLowerCase() === '" + val.toLowerCase() + "') el.closest('.ee-sidebar__items-section').style.display = 'none';\n});";
+                return "document.querySelectorAll('.ee-sidebar__section-label').forEach(function(el) {\n    if (el.textContent.trim().toLowerCase() === " + JSON.stringify(val.toLowerCase()) + ") el.closest('.ee-sidebar__items-section').style.display = 'none';\n});";
             }
         },
         {
@@ -157,7 +157,7 @@
             prompt: 'Enter the current section name (e.g. "Content", "Custom"):',
             prompt2: 'Enter the new name:',
             template: function(val, val2) {
-                return "document.querySelectorAll('.ee-sidebar__section-label').forEach(function(el) {\n    if (el.textContent.trim().toLowerCase() === '" + val.toLowerCase() + "') el.textContent = '" + val2 + "';\n});";
+                return "document.querySelectorAll('.ee-sidebar__section-label').forEach(function(el) {\n    if (el.textContent.trim().toLowerCase() === " + JSON.stringify(val.toLowerCase()) + ") el.textContent = " + JSON.stringify(val2) + ";\n});";
             }
         },
         {
@@ -165,7 +165,7 @@
             desc: 'Show a message banner at the top of every page',
             prompt: 'Enter the welcome message:',
             template: function(val) {
-                return "var banner = document.createElement('div');\nbanner.style.cssText = 'background:#5D63F1;color:#fff;padding:10px 20px;text-align:center;font-size:14px;';\nbanner.textContent = '" + val + "';\nvar main = document.querySelector('.ee-main');\nif (main) main.prepend(banner);";
+                return "var banner = document.createElement('div');\nbanner.style.cssText = 'background:#5D63F1;color:#fff;padding:10px 20px;text-align:center;font-size:14px;';\nbanner.textContent = " + JSON.stringify(val) + ";\nvar main = document.querySelector('.ee-main');\nif (main) main.prepend(banner);";
             }
         },
         {
